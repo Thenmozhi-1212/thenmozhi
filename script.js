@@ -1,17 +1,11 @@
 let tokenNumber = 1;
-
-// Load all orders from localStorage
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-// Display only current student's orders
 function displayMyOrders() {
     let studentName = document.getElementById("studentName").value.trim();
     let table = document.getElementById("myOrdersTable");
     table.innerHTML = "";
 
     if(studentName === "") return;
-
-    // Filter orders by this student only
     let myOrders = orders.filter(o => o.name.toLowerCase() === studentName.toLowerCase());
 
     myOrders.forEach(order => {
@@ -26,9 +20,8 @@ function displayMyOrders() {
     });
 }
 
-// Crowd indicator based on total active orders
 function updateCrowdIndicator() {
-    let activeOrders = orders.length; // total orders in the system
+    let activeOrders = orders.length; 
     let level = "";
     let indicator = document.getElementById("crowdLevel");
 
@@ -45,8 +38,6 @@ function updateCrowdIndicator() {
 
     indicator.innerText = level;
 }
-
-// Place a new order
 function placeOrder() {
     let name = document.getElementById("studentName").value.trim();
     let item = document.getElementById("item").value;
@@ -55,8 +46,6 @@ function placeOrder() {
         alert("Enter your name"); 
         return; 
     }
-
-    // Waiting time = total orders in the queue * 2 minutes
     let waitingTime = orders.length * 2;
 
     let order = {
@@ -72,10 +61,9 @@ function placeOrder() {
     displayMyOrders();
     updateCrowdIndicator();
 }
-
-// Auto-refresh every 2 seconds
 setInterval(() => {
     orders = JSON.parse(localStorage.getItem("orders")) || [];
     displayMyOrders();
     updateCrowdIndicator();
+
 }, 2000);
