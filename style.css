@@ -66,8 +66,6 @@ td {
 tr:hover {
     background-color: #f2f2f2;
 }
-
-/* Crowd Indicator Colors */
 .crowd-indicator {
     margin: 20px 0;
     padding: 10px;
@@ -79,4 +77,5 @@ tr:hover {
 
 .empty { background-color: green; }
 .moderate { background-color: orange; }
+
 .crowded { background-color: red; }
