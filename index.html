@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Canteen Order System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🍔 Student Canteen Order System</h1>
+
+    <!-- Crowd Indicator -->
+    <div class="crowd-indicator">
+        <h2>Crowd Level: <span id="crowdLevel">Empty</span></h2>
+    </div>
+
+    <!-- Order Form -->
+    <div class="form-container">
+        <input type="text" id="studentName" placeholder="Enter Your Name">
+        <select id="item">
+            <option value="Burger">Burger</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Sandwich">Sandwich</option>
+            <option value="Coffee">Coffee</option>
+        </select>
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <!-- Student Orders Table -->
+    <h2>My Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Token</th>
+                <th>Item</th>
+                <th>Waiting Time (mins)</th>
+            </tr>
+        </thead>
+        <tbody id="myOrdersTable"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
